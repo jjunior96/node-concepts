@@ -38,5 +38,14 @@ server.put('/users/:index', (req, res) => {
   return res.json(users);
 });
 
+// Exclusao de um usuario
+server.delete('/users/:index', (req, res) => {
+  const { index } = req.body;
+
+  users.splice(index, 1);
+
+  return res.json(users);
+})
+
 server.listen(3333);
 
