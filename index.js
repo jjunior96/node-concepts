@@ -5,6 +5,14 @@ server.use(express.json());
 
 const users = ['Diego', 'Junior', 'Lucio'];
 
+// Middleware Global
+server.use((req, res, next)=> {
+  console.log(`Método: ${req.method}; URL: ${req.url}`);
+
+  // Nao bloqueia o fluxo
+  return next();
+});
+
 // Listagem de todos os usuarios
 server.get('/users', (req, res) => {
   return res.json(users);
