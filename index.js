@@ -2,11 +2,11 @@ const express = require('express');
 
 const server = express();
 
-server.get('/', (req, res) => {
-  // Query params = ?teste=1
-  const name = req.query.name;
+server.get('/users/:id', (req, res) => {
+  // Route params = /users/1
+  const id = req.params.id;
 
-  return res.json({ name: name });
+  return res.json({ message: `Buscando o usuário ${id}` });
 })
 
 server.listen(3333);
